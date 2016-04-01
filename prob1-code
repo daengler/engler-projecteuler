@@ -2,9 +2,9 @@
 
 (defn prob1 [x]
 (if (<= x 0)
-0
-(+ (usesum (dec x))
-(prob1  (dec x))
-)
+    0
+    (+ (usesum (dec x))
+    (prob1  (dec x))
+    )
 )
 )
