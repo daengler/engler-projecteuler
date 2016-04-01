@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		485913041CADF46A00780EB3 /* prob1 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = prob1; path = ../prob1; sourceTree = "<group>"; };
-		485913051CADF46A00780EB3 /* prob2 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = prob2; path = ../prob2; sourceTree = "<group>"; };
-		485913061CADF46A00780EB3 /* prob3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = prob3; path = ../prob3; sourceTree = "<group>"; };
+		4853005E1CADF85E000E500B /* code */ = {isa = PBXFileReference; lastKnownFileType = text; path = code; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		4853005D1CADF826000E500B /* prob1 */ = {
+			isa = PBXGroup;
+			children = (
+				4853005E1CADF85E000E500B /* code */,
+			);
+			name = prob1;
+			sourceTree = "<group>";
+		};
 		485912FC1CADF40300780EB3 = {
 			isa = PBXGroup;
 			children = (
-				485913041CADF46A00780EB3 /* prob1 */,
-				485913051CADF46A00780EB3 /* prob2 */,
-				485913061CADF46A00780EB3 /* prob3 */,
+				4853005D1CADF826000E500B /* prob1 */,
 			);
 			sourceTree = "<group>";
 		};
