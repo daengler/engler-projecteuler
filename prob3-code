@@ -1,0 +1,57 @@
+
+
+(def numbertofactor 600851475143)
+
+
+;; Calculate primes until sqrt(600851475143)
+;; I did not write this part...
+;; could just precalculate this and have it lying around...  as you do.
+
+
+
+(def primelist
+(reduce
+(fn [primes number]
+(if (some zero? (map (partial mod number) primes))
+primes
+(conj primes number)))
+[2]
+(take (Math/sqrt numbertofactor) (iterate inc 3)))
+)
+
+
+;; wrote the rest...
+
+;; divide n by x until can't anymore
+(defn divby [n x]
+(if (> (mod n x) 0)
+n
+(divby (/ n x) x)
+)
+)
+
+;; largest-factor that is verified so far.  start at 1
+;; n is number to factor
+;; primes is a list of primes to consider
+(defn prob3 [largest-factor n primes]
+    (if (empty? primes)    ;; if there aren't any primes the list is exhausted, n at this point is a prime factor
+        n
+        (if (> (first primes) n) ;; if n is larger than the next prime then we can't go further
+            largest-factor
+            (if (= (mod n (first primes) ) 0)  ;; if n is evenly divisible by the next prime then...
+                (prob3 (first primes) (divby n (first primes)) (rest primes)) ;; divide n by that candidate prime until can't anymore
+                (prob3 largest-factor n (rest primes)) ;; otherwise, move on to the next prime candidate
+            )
+        )
+    )
+)
+
+
+
+
+(prob3 1 numbertofactor primelist)
+
+
+;; answer is 6857
+;; took about 4 minutes... but most of that was spent calculating the primes.  If I skip that step it's much faster
+;; and also generate stack overflow for some inputs so I probably just got lucky with their choice of number
